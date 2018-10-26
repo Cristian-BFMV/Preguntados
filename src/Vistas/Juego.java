@@ -8,6 +8,7 @@ package Vistas;
 import Dominio.AJugador;
 import Dominio.APregunta;
 import Dominio.Jugador;
+import Dominio.Pregunta;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,10 +54,20 @@ public class Juego extends javax.swing.JFrame {
         labelLogin = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         panelPreguntas = new javax.swing.JPanel();
-        labelPreguntas = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAPregunta = new javax.swing.JTextArea();
         btnPreguntas = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtEnunciado = new javax.swing.JTextArea();
+        txtPrimeraopc = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtSegundaopc = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtTerceraopc = new javax.swing.JTextField();
+        cmbOpcioncorrecta = new javax.swing.JComboBox<>();
+        txtCuartaopc = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         panelJuego = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,7 +117,7 @@ public class Juego extends javax.swing.JFrame {
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNick)
                             .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,18 +143,12 @@ public class Juego extends javax.swing.JFrame {
                 .addComponent(cmbLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(labelLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(cmbOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
 
         jTabbedPane1.addTab("Login", panelLogin);
-
-        labelPreguntas.setText("Área de texto");
-
-        txtAPregunta.setColumns(20);
-        txtAPregunta.setRows(5);
-        jScrollPane1.setViewportView(txtAPregunta);
 
         btnPreguntas.setText("Registrar  ");
         btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
@@ -152,33 +157,98 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Enunciado");
+
+        txtEnunciado.setColumns(20);
+        txtEnunciado.setRows(5);
+        jScrollPane2.setViewportView(txtEnunciado);
+
+        jLabel4.setText("Primera opción");
+
+        jLabel5.setText("Segunda opción");
+
+        jLabel6.setText("Tercera opción");
+
+        cmbOpcioncorrecta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primera opción", "Segunda opción", "Tercera opción", "Cuarto opción" }));
+
+        jLabel7.setText("Cuarta opción");
+
+        jLabel8.setText("Opción correcta");
+
         javax.swing.GroupLayout panelPreguntasLayout = new javax.swing.GroupLayout(panelPreguntas);
         panelPreguntas.setLayout(panelPreguntasLayout);
         panelPreguntasLayout.setHorizontalGroup(
             panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPreguntasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreguntasLayout.createSequentialGroup()
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelPreguntasLayout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(jLabel3))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreguntasLayout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCuartaopc, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPrimeraopc)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                    .addComponent(txtSegundaopc)
+                    .addComponent(txtTerceraopc)
                     .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(labelPreguntas))
-                    .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(btnPreguntas)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addComponent(cmbOpcioncorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(56, 56, 56))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreguntasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnPreguntas)
+                .addGap(199, 199, 199))
         );
         panelPreguntasLayout.setVerticalGroup(
             panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPreguntasLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(labelPreguntas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreguntasLayout.createSequentialGroup()
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPrimeraopc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtSegundaopc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtTerceraopc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7))
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(txtCuartaopc, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbOpcioncorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
                 .addComponent(btnPreguntas)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Preguntas", panelPreguntas);
@@ -187,11 +257,11 @@ public class Juego extends javax.swing.JFrame {
         panelJuego.setLayout(panelJuegoLayout);
         panelJuegoLayout.setHorizontalGroup(
             panelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
         );
         panelJuegoLayout.setVerticalGroup(
             panelJuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 242, Short.MAX_VALUE)
+            .addGap(0, 319, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Juego", panelJuego);
@@ -200,11 +270,15 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -279,7 +353,24 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbOpcionesActionPerformed
 
     private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed
-        System.out.println(txtAPregunta.getText());
+        String enunciado = txtEnunciado.getText(), opcionCorrecta="";
+        String [] opciones = {txtPrimeraopc.getText(), txtSegundaopc.getText(), txtTerceraopc.getText(), txtCuartaopc.getText()};
+        switch(cmbOpcioncorrecta.getSelectedIndex()){
+            case 0:
+                opcionCorrecta = txtPrimeraopc.getText();
+                break;
+            case 1:
+                opcionCorrecta = txtSegundaopc.getText();
+                break;
+            case 2:
+                opcionCorrecta = txtTerceraopc.getText();
+                break;
+            case 3: 
+                opcionCorrecta = txtCuartaopc.getText();
+                break;
+        }
+        pregunta = new Pregunta(enunciado, opcionCorrecta, opciones);
+        pregunta.crearRegistrarPregunta();
     }//GEN-LAST:event_btnPreguntasActionPerformed
 
     /**
@@ -319,19 +410,29 @@ public class Juego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPreguntas;
     private javax.swing.JComboBox<String> cmbLogin;
+    private javax.swing.JComboBox<String> cmbOpcioncorrecta;
     private javax.swing.JComboBox<String> cmbOpciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel labelLogin;
-    private javax.swing.JLabel labelPreguntas;
     private javax.swing.JPanel panelJuego;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelPreguntas;
-    private javax.swing.JTextArea txtAPregunta;
+    private javax.swing.JTextField txtCuartaopc;
+    private javax.swing.JTextArea txtEnunciado;
     private javax.swing.JTextField txtNick;
     private javax.swing.JTextField txtPass;
+    private javax.swing.JTextField txtPrimeraopc;
+    private javax.swing.JTextField txtSegundaopc;
+    private javax.swing.JTextField txtTerceraopc;
     // End of variables declaration//GEN-END:variables
 }
