@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Vistas;
+
 import Dominio.AJugador;
+import Dominio.APregunta;
 import Dominio.Jugador;
 import javax.swing.JOptionPane;
 
@@ -15,6 +17,7 @@ import javax.swing.JOptionPane;
 public class Juego extends javax.swing.JFrame {
 
     AJugador jugador;
+    APregunta pregunta;
 
     /**
      * Creates new form Login
@@ -52,7 +55,7 @@ public class Juego extends javax.swing.JFrame {
         panelPreguntas = new javax.swing.JPanel();
         labelPreguntas = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAPregunta = new javax.swing.JTextArea();
         btnPreguntas = new javax.swing.JButton();
         panelJuego = new javax.swing.JPanel();
 
@@ -136,13 +139,18 @@ public class Juego extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Login", panelLogin);
 
-        labelPreguntas.setText("jLabel3");
+        labelPreguntas.setText("Área de texto");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAPregunta.setColumns(20);
+        txtAPregunta.setRows(5);
+        jScrollPane1.setViewportView(txtAPregunta);
 
-        btnPreguntas.setText("Registrar");
+        btnPreguntas.setText("Registrar  ");
+        btnPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreguntasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPreguntasLayout = new javax.swing.GroupLayout(panelPreguntas);
         panelPreguntas.setLayout(panelPreguntasLayout);
@@ -154,11 +162,11 @@ public class Juego extends javax.swing.JFrame {
                         .addGap(90, 90, 90)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnPreguntas))
+                        .addGap(159, 159, 159)
+                        .addComponent(labelPreguntas))
                     .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(labelPreguntas)))
+                        .addGap(158, 158, 158)
+                        .addComponent(btnPreguntas)))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
         panelPreguntasLayout.setVerticalGroup(
@@ -218,7 +226,7 @@ public class Juego extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(panelLogin, "No puede dejar los espacios en blanco", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     txtNick.setText("");
-                     txtPass.setText("");
+                    txtPass.setText("");
                 }
                 break;
             case 2:
@@ -232,12 +240,12 @@ public class Juego extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(panelLogin, "Ha iniciado sesión correctamente", "Felicidades", JOptionPane.INFORMATION_MESSAGE);
                         txtNick.setText("");
                         txtPass.setText("");
-                    }                    
-                }else{
-                        JOptionPane.showMessageDialog(panelLogin, "No puede dejar los espacios en blanco", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        txtNick.setText("");
-                        txtPass.setText("");
                     }
+                } else {
+                    JOptionPane.showMessageDialog(panelLogin, "No puede dejar los espacios en blanco", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    txtNick.setText("");
+                    txtPass.setText("");
+                }
                 break;
         }
     }//GEN-LAST:event_cmbLoginActionPerformed
@@ -253,12 +261,14 @@ public class Juego extends javax.swing.JFrame {
     private void cmbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOpcionesActionPerformed
         switch (cmbOpciones.getSelectedIndex()) {
             case 1:
+                
                 jTabbedPane1.setEnabledAt(0, false);
                 jTabbedPane1.setEnabledAt(1, true);
                 jTabbedPane1.setSelectedComponent(panelPreguntas);
-                labelPreguntas.setText("Escriba el enunciado de la pregunta");
-                panelLogin.setLayout(null);
-                labelPreguntas.setAlignmentY(panelLogin.getWidth()/2);
+                JOptionPane.showMessageDialog(panelJuego, "El formato para crear las preguntas debe de ser el siguente: "
+                        + "\n" + "La primera linea debe incluir el enunciado de la pregunta"+
+                        "\n" + "La segunda linea debe tener las 4 opciones de respuesta separadas cada una por coma"+"\n"
+                        + "En la tercera y última debera ir especificada la opción correcta de la pregunta", "Información importante",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case 2:
                 jTabbedPane1.setEnabledAt(0, false);
@@ -267,6 +277,10 @@ public class Juego extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_cmbOpcionesActionPerformed
+
+    private void btnPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasActionPerformed
+        System.out.println(txtAPregunta.getText());
+    }//GEN-LAST:event_btnPreguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,12 +325,12 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelPreguntas;
     private javax.swing.JPanel panelJuego;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelPreguntas;
+    private javax.swing.JTextArea txtAPregunta;
     private javax.swing.JTextField txtNick;
     private javax.swing.JTextField txtPass;
     // End of variables declaration//GEN-END:variables
